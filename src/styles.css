@@ -52,12 +52,12 @@ body {
     font-size: larger;
 }
 
-.logo-container {
+.cover-container {
     margin: 0;
     width: 100%;
 }
 
-.logo-container img {
+.cover-container img {
     width: 100%;
     height: 150px; 
     object-fit: cover; 
