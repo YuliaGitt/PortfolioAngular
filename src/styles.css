@@ -1,9 +1,9 @@
 html, body {
-    min-height: 100%;
+    border: 0.01px solid;
+    min-height: 100vh;
     margin: 0;
-}
-
-body {
+    padding: 0;
+    margin-top: 0;
     background: linear-gradient(0deg, rgba(119,63,251,0.5) 0%, rgba(252,70,211,0.5) 100%);
 }
 
@@ -15,18 +15,17 @@ body {
     color: white;
     font-family: Marker Felt, fantasy;
     font-size:30px;
-    padding: 10px 20px;
+    padding: 5px 10px;
 }
 
 .nav-item{
     margin: 0 100px;
-
 }
 
 .bi-cart-fill {
     text-align: center;
     color: white;
-    margin-bottom: 20px;
+
 }
 
 .bi-house-heart-fill {
