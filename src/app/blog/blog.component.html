@@ -1,1 +1,9 @@
-<p>blog works!</p>
+<div *ngFor="let joke of jokes">
+  <h2>{{ joke.joke }}</h2>
+</div>
+<br />
+<div *ngFor="let location of locations">
+  <h2>{{ location.location }}</h2>
+  <h2>{{ location.latitude }}</h2>
+  <h2>{{ location.longitude }}</h2>
+</div>

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BaseComponent } from './base/base.component';
@@ -8,6 +10,19 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ShopComponent } from './shop/shop.component';
 import { BlogComponent } from './blog/blog.component';
 
+import { AuthModule } from './auth/auth.module';
+
+import { ApiService } from './api.service';
+import { from } from 'rxjs';
+
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'home', component: BaseComponent },
+  { path: 'shop', component: ShopComponent },
+  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'blog', component: BlogComponent },
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,12 +30,16 @@ import { BlogComponent } from './blog/blog.component';
     NavbarComponent,
     PortfolioComponent,
     ShopComponent,
-    BlogComponent
+    BlogComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AuthModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ApiService],
+  bootstrap: [AppComponent],
+  exports: [RouterModule],
 })
-export class AppModule { }
+export class AppModule {}

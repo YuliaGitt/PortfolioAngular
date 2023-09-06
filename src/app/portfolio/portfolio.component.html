@@ -1,1 +1,16 @@
-<p>portfolio works!</p>
+<div *ngFor="let project of projects">
+  <h2>{{ project.name }}</h2>
+  <h2>{{ project.description }}</h2>
+  <h2>{{ project.skills }}</h2>
+</div>
+<br />
+<div *ngFor="let education of educations">
+  <h2>{{ education.institution }}</h2>
+  <h2>{{ education.description }}</h2>
+  <h2>{{ education.projects }}</h2>
+  <h2>{{ education.skills }}</h2>
+</div>
+<br />
+<div *ngFor="let skill of skills">
+  <h2>{{ skill.name }}</h2>
+</div>
