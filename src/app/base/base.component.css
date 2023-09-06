@@ -1,0 +1,143 @@
+/* body {
+    border: 0.01px solid ;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    margin-top: 0;
+    background: linear-gradient(0deg, rgba(119,63,251,0.5) 0%, rgba(252,70,211,1) 100%);
+} 
+
+html {
+    border: 0.01px solid ;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    margin-top: 0;
+    background:  rgba(119,63,251,1);
+}
+
+.desc-container {
+  float: left;
+  display: block;
+  border: 10px outset black;
+  width: 1000px;
+  height: 400px;
+  background-color: white;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+.welcome {
+  margin-top: 15px;
+  margin-left: 20px;
+  font-family: Marker Felt, fantasy;
+  font-size: 45px;
+  font-stretch: 50%;
+}
+
+.desc-item {
+  margin: 20px;
+  font-family: Marker Felt, fantasy;
+  font-size: 25px;
+  font-stretch: 50%;
+  margin-top: 0px;
+}
+
+.img-container {
+  float: right;
+  display: block;
+  border: 10px outset black;
+  height: 400px;
+  width: 400px;
+  margin-top: 50px;
+  margin-right: 20px;
+  background-color: white;
+}
+
+.resume-container {
+  float: left;
+  border: 10px outset black;
+  height: 150px;
+  width: 700px;
+  margin-top: 50px;
+  margin-left: 20px;
+  background-color: white;
+  font-family: Marker Felt, fantasy;
+  font-size: 25px;
+  font-stretch: 50%;
+}
+
+.resume-item-english {
+  float: left;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.resume-item-hebrew {
+  float: right;
+  margin-top: 10px;
+  margin-right: 50px;
+}
+
+.resume-header {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.bi-file-earmark-person {
+  font-size: larger;
+}
+
+.social-container {
+  float: left;
+  border: 10px outset black;
+  height: 150px;
+  width: 700px;
+  margin-top: 50px;
+  margin-left: 65px;
+  margin-right: 20px;
+  background-color: white;
+  font-family: Marker Felt, fantasy;
+  font-size: 25px;
+  font-stretch: 50%;
+}
+
+.social-linkedin {
+  float: left;
+  margin-top: 5px;
+  margin-left: 5cqh;
+}
+
+.social-github {
+  float: right;
+  margin-top: 10px;
+  margin-right: 50px;
+}
+
+.social-header {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.bi-linkedin {
+  font-size: larger;
+}
+
+.bi-github {
+  font-size: larger;
+}
+
+.resume-container a {
+  color: rgb(0, 0, 0);
+}
+
+ .nav i{
+    color: white;
+} 
+
+.resume-container a:hover {
+  color: gray;
+}
+.nav i:hover{
+    color: gray;
+}  */
