@@ -1,0 +1,25 @@
+.nav {
+  background-color: #000;
+  font-family: Marker Felt, fantasy;
+  font-size: 30px;
+}
+.nav-item {
+  margin-right: 10vh;
+  margin-left: 10vh;
+}
+
+.nav a {
+  color: white;
+}
+
+.nav i {
+  color: white;
+}
+
+.nav a:hover {
+  color: gray;
+}
+
+.nav i:hover {
+  color: gray;
+}

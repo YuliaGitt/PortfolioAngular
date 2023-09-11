@@ -13,13 +13,12 @@ import { BlogComponent } from './blog/blog.component';
 import { AuthModule } from './auth/auth.module';
 
 import { ApiService } from './api.service';
-import { from } from 'rxjs';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: BaseComponent },
   { path: 'shop', component: ShopComponent },
-  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'project', component: PortfolioComponent },
   { path: 'blog', component: BlogComponent },
 ];
 
