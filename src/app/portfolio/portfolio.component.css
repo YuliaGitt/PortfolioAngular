@@ -1,0 +1,15 @@
+.card-deck {
+  margin: 40px;
+}
+
+.card {
+  width: 500px;
+  border: black solid 5px;
+}
+
+.red {
+  color: crimson;
+}
+.bi-suit-heart-fill {
+  padding: 2px;
+}

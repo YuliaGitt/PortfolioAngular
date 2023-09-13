@@ -1,7 +1,18 @@
-<div *ngFor="let product of products">
-  <h2>{{ product.name }}</h2>
-  <h2>{{ product.description }}</h2>
-  <h2>{{ product.price }}</h2>
+<div class="card-deck">
+  <div class="card" *ngFor="let product of products">
+    <img class="card-img-top" src="assets/random.jpg" alt="Card image cap" />
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">
+        {{ product.description }}
+      </p>
+      <p class="card-text">
+        <small class="text-muted">
+          <input type="number" />
+        </small>
+      </p>
+    </div>
+  </div>
 </div>
 <br />
 <div *ngFor="let item of cart">

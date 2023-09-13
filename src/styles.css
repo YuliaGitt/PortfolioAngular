@@ -8,11 +8,7 @@ body {
   font-family: Marker Felt, fantasy;
   font-size: 2rem;
 }
-.main-container {
-  /* Subtracting 200px for the .cover-container height */
-  max-height: calc(150vh - 150px);
-  overflow-y: auto;
-}
+
 .cover-container img {
   width: 100%;
   height: 150px;

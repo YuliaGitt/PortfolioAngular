@@ -1,0 +1,11 @@
+.card-deck {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Defines 4 columns of equal width */
+  gap: 1rem; /* Optional: Spacing between the cards */
+  margin: 40px;
+}
+
+.card {
+  width: 70%;
+  border: black solid 5px;
+}
