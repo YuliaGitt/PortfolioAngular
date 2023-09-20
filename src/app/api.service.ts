@@ -19,6 +19,9 @@ export class ApiService {
   get_projects() {
     return this.httpClient.get(`${this.baseUrl}project/project/`);
   }
+  get_project(id: number) {
+    return this.httpClient.get(`${this.baseUrl}project/project/${id}/`);
+  }
   rate_project(rate: number, projectId: number) {
     const body = JSON.stringify({ stars: rate });
     return this.httpClient.post(

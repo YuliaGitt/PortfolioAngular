@@ -9,11 +9,7 @@
   <h2>{{ skill.name }}</h2>
 </div>
 <div class="card-deck">
-  <div
-    class="card"
-    *ngFor="let project of projects"
-    (click)="projectClicked(project)"
-  >
+  <div class="card" *ngFor="let project of projects">
     <img class="card-img-top" src="assets/random.jpg" alt="Card image cap" />
     <div class="card-body">
       <h5 class="card-title">{{ project.name }}</h5>

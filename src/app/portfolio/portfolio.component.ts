@@ -7,6 +7,7 @@ import { ApiService } from '../api.service';
 })
 export class PortfolioComponent implements OnInit {
   projects: any = [];
+  project: any = [];
   educations: any = [];
   skills: any = [];
   selectedProject: any;
@@ -15,12 +16,7 @@ export class PortfolioComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.apiService.get_projects().subscribe(
-      (data) => {
-        this.projects = data;
-      },
-      (error) => console.log(error)
-    );
+    this.getProjects();
 
     this.apiService.get_educations().subscribe(
       (data) => {
@@ -39,17 +35,21 @@ export class PortfolioComponent implements OnInit {
   rateEnter(rate: any, project: any) {
     this.selectedProject = project;
     this.apiService.rate_project(rate, this.selectedProject.id).subscribe(
-      (date) => {
-        console.log(date);
-      },
+      (date) => this.getProjects(),
       (error) => console.log(error)
     );
   }
+
   rateHover(rate: any) {
     this.rateHovered = rate;
   }
 
-  projectClicked(project: any) {
-    console.log(this.selectedProject);
+  getProjects() {
+    this.apiService.get_projects().subscribe(
+      (data) => {
+        this.projects = data;
+      },
+      (error) => console.log(error)
+    );
   }
 }
