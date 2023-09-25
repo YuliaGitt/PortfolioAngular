@@ -1,0 +1,20 @@
+<div class="card-deck">
+  <div class="card" *ngFor="let education of educations">
+    <div class="card-body">
+      <i class="bi bi-pencil-square"></i>
+      <i class="bi bi-trash3-fill"></i>
+      <h5 class="card-title">{{ education.institution }}</h5>
+      <p class="card-text">
+        {{ education.description }}
+      </p>
+      <p class="card-text">
+        <!-- <small class="text-muted"> -->
+        <small>
+          {{ education.skills }}
+        </small>
+      </p>
+    </div>
+  </div>
+</div>
+<i class="bi bi-plus-square-fill"></i>
+<h2>Add Education</h2>

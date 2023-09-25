@@ -1,0 +1,8 @@
+.card-deck {
+  margin: 40px;
+}
+
+.card {
+  width: 500px;
+  border: black solid 5px;
+}
