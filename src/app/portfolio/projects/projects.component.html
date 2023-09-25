@@ -2,7 +2,7 @@
   <div class="card" *ngFor="let project of projects">
     <img class="card-img-top" src="assets/random.jpg" alt="Card image cap" />
     <div class="card-body">
-      <i class="bi bi-pencil-square"></i>
+      <i class="bi bi-pencil-square" (click)="editProject(project)"></i>
       <i class="bi bi-trash3-fill"></i>
       <h5 class="card-title">{{ project.name }}</h5>
       <i

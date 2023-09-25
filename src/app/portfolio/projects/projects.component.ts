@@ -9,6 +9,7 @@ import { Project } from 'src/app/portfolio/portfolio-models';
 export class ProjectsComponent implements OnInit {
   projects: Project[] = [];
   selectedProject: any;
+  editedProject: any;
   rateHovered = 0;
   constructor(private apiService: ApiServicePortfolio) {}
 
@@ -41,5 +42,10 @@ export class ProjectsComponent implements OnInit {
       },
       (error) => console.log(error)
     );
+  }
+
+  editProject(project: Project) {
+    this.editedProject = project;
+    console.log(this.editedProject);
   }
 }
