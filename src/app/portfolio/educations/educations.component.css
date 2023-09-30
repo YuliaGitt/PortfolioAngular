@@ -6,3 +6,9 @@
   width: 500px;
   border: black solid 5px;
 }
+.card-title {
+  display: flex;
+}
+.push {
+  margin-left: auto;
+}

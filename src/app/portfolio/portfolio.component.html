@@ -1,7 +1,10 @@
-<app-projects></app-projects>
-<br />
+<app-portfolio-forms></app-portfolio-forms>
+<app-projects
+  (editedProject)="editProject($event)"
+  (newProject)="newProject()"
+  (deletedProject)="deletedProject($event)"
+></app-projects>
 <app-educations></app-educations>
-<br />
 <app-skills></app-skills>
 
 <!-- <app-portfolio-forms *ngIf="editObject"></app-portfolio-forms> -->

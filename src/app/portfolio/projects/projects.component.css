@@ -1,8 +1,10 @@
 .card-deck {
+  display: flex;
   margin: 40px;
 }
 
 .card {
+  margin: 5px;
   width: 500px;
   border: black solid 5px;
 }
@@ -12,4 +14,36 @@
 }
 .bi-suit-heart-fill {
   padding: 2px;
+}
+.card-title {
+  display: flex;
+}
+.push {
+  margin-left: auto;
+}
+.card-rate {
+  display: flex;
+}
+.rate-nums {
+  font-size: xx-large;
+  margin-left: 2.5px;
+  margin-top: auto;
+}
+
+.add-container {
+  height: 70px;
+  display: flex;
+  margin-top: 10px;
+  border: black solid 5px;
+  background-color: white;
+  width: 250px;
+}
+
+.add-container-text {
+  margin-top: auto;
+  margin-left: 5px;
+}
+
+.bi-plus-square-fill {
+  margin-left: 15px;
 }

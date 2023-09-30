@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Project } from './models/portfolio-models';
+import { Education, Project } from './portfolio/portfolio-models';
 
 @Injectable({
   providedIn: 'root',
@@ -14,28 +14,6 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) {}
 
-  get_educations() {
-    return this.httpClient.get(`${this.baseUrl}project/education/`);
-  }
-  get_projects() {
-    return this.httpClient.get<Project>(`${this.baseUrl}project/project/`);
-  }
-  get_project(id: number) {
-    return this.httpClient.get<Project>(
-      `${this.baseUrl}project/project/${id}/`
-    );
-  }
-
-  rate_project(rate: number, projectId: number) {
-    const body = JSON.stringify({ stars: rate });
-    return this.httpClient.post<Project>(
-      `${this.baseUrl}project/project/${projectId}/rate_project/`,
-      body,
-      {
-        headers: this.headers,
-      }
-    );
-  }
   get_skills() {
     return this.httpClient.get(`${this.baseUrl}project/skill/`);
   }

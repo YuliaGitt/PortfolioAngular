@@ -9,17 +9,20 @@ import { findIndex } from 'rxjs';
   styleUrls: ['./portfolio.component.css'],
 })
 export class PortfolioComponent implements OnInit {
+  editedProject: any;
+
   ngOnInit() {}
 
-  // getProjects() {
-  //   this.apiService.get_projects().subscribe(
-  //     (data: any) => {
-  //       this.projects = data;
-  //     },
-  //     (error) => console.log(error)
-  //   );
+  editProject(project: Project) {
+    this.editedProject = project;
+    console.log(this.editedProject);
+  }
+  newProject() {
+    this.editedProject = { title: '', description: '' };
+    console.log(this.editedProject);
+  }
+  deletedProject(project: Project) {
+    // DELETE NOT WORKING
+    console.log('DELETE', project.name);
+  }
 }
-
-// add_education() {
-//   alert('ADD EDUCATION');
-// }

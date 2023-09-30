@@ -1,1 +1,98 @@
-<p>portfolio-forms works!</p>
+<!-- PROJECT FORM -->
+<div class="modal" id="projectAddModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add Project</h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          (click)="closeAddModal()"
+        ></button>
+      </div>
+      <!-- Modal body -->
+      <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Title input</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="Title input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Description input</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Description input"
+          />
+        </div>
+      </form>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="closeAddModal()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="projectEditModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          (click)="closeEditModal()"
+        ></button>
+      </div>
+      <!-- Modal body -->
+      <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Example label</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="Title input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Another label</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Description input"
+          />
+        </div>
+      </form>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="closeEditModal()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

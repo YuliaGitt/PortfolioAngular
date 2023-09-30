@@ -2,35 +2,48 @@
   <div class="card" *ngFor="let project of projects">
     <img class="card-img-top" src="assets/random.jpg" alt="Card image cap" />
     <div class="card-body">
-      <i class="bi bi-pencil-square" (click)="editProject(project)"></i>
-      <i class="bi bi-trash3-fill"></i>
-      <h5 class="card-title">{{ project.name }}</h5>
-      <i
-        class="bi bi-suit-heart-fill"
-        [ngClass]="{ red: project.avg_ratings > 0 }"
-      ></i>
-      <i
-        class="bi bi-suit-heart-fill"
-        [ngClass]="{ red: project.avg_ratings > 1 }"
-      ></i>
-      <i
-        class="bi bi-suit-heart-fill"
-        [ngClass]="{ red: project.avg_ratings > 2 }"
-      ></i>
-      <i
-        class="bi bi-suit-heart-fill"
-        [ngClass]="{ red: project.avg_ratings > 3 }"
-      ></i>
-      <i
-        class="bi bi-suit-heart-fill"
-        [ngClass]="{ red: project.avg_ratings > 4 }"
-      ></i>
-      <h2>({{ project.num_of_ratings }})</h2>
-      <h2>{{ project.avg_ratings }}</h2>
+      <div class="card-title">
+        <h1>{{ project.name }}</h1>
+        <div class="push">
+          <i class="bi bi-pencil-square" (click)="openEditModal(project)"></i>
+          <i class="bi bi-trash3-fill" (click)="deleteProject(project)"></i>
+        </div>
+      </div>
+      <div class="card-rate">
+        <i
+          class="bi bi-suit-heart-fill"
+          [ngClass]="{ red: project.avg_ratings > 0 }"
+        ></i>
+        <i
+          class="bi bi-suit-heart-fill"
+          [ngClass]="{ red: project.avg_ratings > 1 }"
+        >
+        </i>
+
+        <i
+          class="bi bi-suit-heart-fill"
+          [ngClass]="{ red: project.avg_ratings > 2 }"
+        ></i>
+        <i
+          class="bi bi-suit-heart-fill"
+          [ngClass]="{ red: project.avg_ratings > 3 }"
+        ></i>
+        <i
+          class="bi bi-suit-heart-fill"
+          [ngClass]="{ red: project.avg_ratings > 4 }"
+        ></i>
+        <div class="rate-nums">
+          <h2>({{ project.num_of_ratings }})</h2>
+        </div>
+      </div>
 
       <p class="card-text">
         {{ project.description }}
       </p>
+      <div *ngFor="let skill of project.skills">
+        {{ skill.name }}
+      </div>
+
       <p class="card-text">
         <!-- <small class="text-muted"> -->
         <small>
@@ -49,6 +62,10 @@
       </p>
     </div>
   </div>
-  <i class="bi bi-plus-square-fill"></i>
-  <h2>Add Project</h2>
+  <div class="add-container">
+    <i class="bi bi-plus-square-fill" (click)="openAddModal()"></i>
+    <div class="add-container-text">
+      <h2>Add Project</h2>
+    </div>
+  </div>
 </div>
