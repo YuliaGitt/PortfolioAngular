@@ -19,6 +19,7 @@ export class ApiServicePortfolio {
       `${this.baseUrl}project/education/`
     );
   }
+
   get_projects() {
     return this.httpClient.get<Project[]>(`${this.baseUrl}project/project/`);
   }

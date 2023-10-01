@@ -5,7 +5,7 @@
       <div class="card-title">
         <h1>{{ project.name }}</h1>
         <div class="push">
-          <i class="bi bi-pencil-square" (click)="openEditModal(project)"></i>
+          <i class="bi bi-pencil-square" (click)="openModal()"></i>
           <i class="bi bi-trash3-fill" (click)="deleteProject(project)"></i>
         </div>
       </div>
@@ -63,7 +63,7 @@
     </div>
   </div>
   <div class="add-container">
-    <i class="bi bi-plus-square-fill" (click)="openAddModal()"></i>
+    <i class="bi bi-plus-square-fill" (click)="openModal()"></i>
     <div class="add-container-text">
       <h2>Add Project</h2>
     </div>

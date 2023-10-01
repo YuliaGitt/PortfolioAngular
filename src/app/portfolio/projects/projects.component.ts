@@ -75,16 +75,8 @@ export class ProjectsComponent implements OnInit {
   deleteProject(project: Project) {
     this.deletedProject.emit(project);
   }
-  openAddModal() {
+  openModal() {
     const modelDiv = document.getElementById('projectAddModal');
-    if (modelDiv != null) {
-      modelDiv.style.display = 'block';
-    }
-  }
-
-  openEditModal(project: Project) {
-    this.editedProject.emit(project);
-    const modelDiv = document.getElementById('projectEditModal');
     if (modelDiv != null) {
       modelDiv.style.display = 'block';
     }

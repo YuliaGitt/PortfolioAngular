@@ -4,17 +4,18 @@
     <div class="modal-content">
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Add Project</h4>
+        <h1 *ngIf="!project">Add Project</h1>
+        <h1 *ngIf="project">Edit Project</h1>
         <button
           type="button"
           class="btn-close"
           data-bs-dismiss="modal"
-          (click)="closeAddModal()"
+          (click)="closeModal()"
         ></button>
       </div>
       <!-- Modal body -->
       <form>
-        <div class="form-group">
+        <div class="form-group" *ngIf="!project">
           <label for="formGroupExampleInput">Title input</label>
           <input
             type="text"
@@ -22,73 +23,49 @@
             id="formGroupExampleInput"
             placeholder="Title input"
           />
-        </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput2">Description input</label>
-          <input
-            type="text"
-            class="form-control"
-            id="formGroupExampleInput2"
-            placeholder="Description input"
-          />
-        </div>
-      </form>
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-danger"
-          data-bs-dismiss="modal"
-          (click)="closeAddModal()"
-        >
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal" id="projectEditModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          (click)="closeEditModal()"
-        ></button>
-      </div>
-      <!-- Modal body -->
-      <form>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Example label</label>
+          <label for="formGroupExampleInput">Description input</label>
           <input
             type="text"
             class="form-control"
             id="formGroupExampleInput"
-            placeholder="Title input"
-          />
-        </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput2">Another label</label>
-          <input
-            type="text"
-            class="form-control"
-            id="formGroupExampleInput2"
             placeholder="Description input"
           />
         </div>
+        <div class="form-group" *ngIf="project">
+          <label for="formGroupExampleInput">{{ project.name }}</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="{{ project.name }}"
+          />
+          <label for="formGroupExampleInput">{{ project.description }}</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="{{ project.description }}"
+          />
+        </div>
       </form>
+      <div class="form-check form-check-inline" *ngFor="let skill of skills">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox1"
+          [value]="skill.name"
+        />
+        <label class="form-check-label" for="inlineCheckbox1">{{
+          skill.name
+        }}</label>
+      </div>
       <!-- Modal footer -->
       <div class="modal-footer">
         <button
           type="button"
           class="btn btn-danger"
           data-bs-dismiss="modal"
-          (click)="closeEditModal()"
+          (click)="closeModal()"
         >
           Close
         </button>

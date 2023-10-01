@@ -1,28 +1,34 @@
-import { Component, EventEmitter, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  ViewChild,
+  OnInit,
+} from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { Project } from '../portfolio-models';
+import { ApiServicePortfolio } from '../api-portfolio.service';
+import { Project, Skill } from '../portfolio-models';
 
 @Component({
   selector: 'app-portfolio-forms',
   templateUrl: './portfolio-forms.component.html',
   styleUrls: ['./portfolio-forms.component.css'],
 })
-export class PortfolioFormsComponent {
-  event: EventEmitter<any> = new EventEmitter();
-  @Input() project = new EventEmitter<Project>();
+export class PortfolioFormsComponent implements OnInit {
+  @Input() project: Project | undefined;
+  skills: Skill[] = [];
 
-  constructor(public bsModalRef: BsModalRef) {}
+  constructor(private apiServicePortfolio: ApiServicePortfolio) {}
 
-  closeAddModal() {
-    const modelDiv = document.getElementById('projectAddModal');
-    if (modelDiv != null) {
-      modelDiv.style.display = 'none';
-    }
+  ngOnInit() {
+    this.apiServicePortfolio.get_skills().subscribe((data: Skill[]) => {
+      this.skills = data;
+    });
   }
 
-  closeEditModal() {
-    const modelDiv = document.getElementById('projectEditModal');
+  closeModal() {
+    const modelDiv = document.getElementById('projectAddModal');
     if (modelDiv != null) {
       modelDiv.style.display = 'none';
     }
