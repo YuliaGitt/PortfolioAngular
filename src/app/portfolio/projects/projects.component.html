@@ -5,7 +5,7 @@
       <div class="card-title">
         <h1>{{ project.name }}</h1>
         <div class="push">
-          <i class="bi bi-pencil-square" (click)="openModal()"></i>
+          <i class="bi bi-pencil-square" (click)="openModal(project)"></i>
           <i class="bi bi-trash3-fill" (click)="deleteProject(project)"></i>
         </div>
       </div>
@@ -48,24 +48,22 @@
         <!-- <small class="text-muted"> -->
         <small>
           <h2>RATE THE PROJECT:</h2>
-          <div>
-            <i
-              class="bi bi-suit-heart-fill"
-              *ngFor="let rate of [1, 2, 3, 4, 5]"
-              (mouseleave)="rateHovered = 0"
-              (mouseenter)="rateHover(rate)"
-              (click)="rateEnter(rate, project)"
-              [ngClass]="{ red: rateHovered >= rate }"
-            ></i>
-          </div>
+          <i
+            class="bi bi-suit-heart-fill"
+            *ngFor="let rate of [1, 2, 3, 4, 5]"
+            (mouseleave)="rateHoveredStates[project.id] = 0"
+            (mouseenter)="rateHover(rate, project.id)"
+            (click)="rateEnter(rate, project)"
+            [ngClass]="{ red: rateHoveredStates[project.id] >= rate }"
+          ></i>
         </small>
       </p>
     </div>
   </div>
-  <div class="add-container">
-    <i class="bi bi-plus-square-fill" (click)="openModal()"></i>
-    <div class="add-container-text">
-      <h2>Add Project</h2>
-    </div>
+</div>
+<div class="add-container">
+  <i class="bi bi-plus-square-fill" (click)="openModal()"></i>
+  <div class="add-container-text">
+    <h2>Add Project</h2>
   </div>
 </div>

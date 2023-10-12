@@ -16,7 +16,7 @@ import { Project, Skill } from '../portfolio-models';
   styleUrls: ['./portfolio-forms.component.css'],
 })
 export class PortfolioFormsComponent implements OnInit {
-  @Input() project: Project | undefined;
+  @Input() project?: Project;
   skills: Skill[] = [];
 
   constructor(private apiServicePortfolio: ApiServicePortfolio) {}
@@ -28,9 +28,9 @@ export class PortfolioFormsComponent implements OnInit {
   }
 
   closeModal() {
-    const modelDiv = document.getElementById('projectAddModal');
-    if (modelDiv != null) {
-      modelDiv.style.display = 'none';
+    const modalDiv = document.getElementById('projectAddModal');
+    if (modalDiv != null) {
+      modalDiv.style.display = 'none';
     }
   }
 }

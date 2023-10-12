@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { ApiServicePortfolio } from '../api-portfolio.service';
@@ -17,7 +17,8 @@ export class ProjectsComponent implements OnInit {
   selectedProject: any;
   rateHovered = 0;
   skills: Skill[] = [];
-
+  rateHoveredStates: { [projectId: number]: number } = {};
+  @Input() project: any;
   @Output() editedProject = new EventEmitter<Project>();
   @Output() newProject = new EventEmitter();
   @Output() deletedProject = new EventEmitter<Project>();
@@ -36,8 +37,8 @@ export class ProjectsComponent implements OnInit {
     );
   }
 
-  rateHover(rate: number) {
-    this.rateHovered = rate;
+  rateHover(rate: number, projectId: number) {
+    this.rateHoveredStates[projectId] = rate;
   }
 
   rateEnter(rate: number, project: Project) {
@@ -67,18 +68,14 @@ export class ProjectsComponent implements OnInit {
       .join(', ');
   }
 
-  createProject() {
-    this.newProject.emit();
-    console.log('CREATE NEW PROJECT');
-  }
-
   deleteProject(project: Project) {
     this.deletedProject.emit(project);
   }
-  openModal() {
-    const modelDiv = document.getElementById('projectAddModal');
-    if (modelDiv != null) {
-      modelDiv.style.display = 'block';
+  openModal(project?: Project) {
+    if (project) {
+      this.selectedProject = project;
+    } else {
+      this.selectedProject = null;
     }
   }
 }

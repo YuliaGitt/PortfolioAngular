@@ -1,5 +1,9 @@
 <!-- PROJECT FORM -->
-<div class="modal" id="projectAddModal">
+<div
+  class="modal"
+  [style.display]="project ? 'block' : 'none'"
+  id="projectAddModal"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <!-- Modal Header -->
@@ -15,36 +19,22 @@
       </div>
       <!-- Modal body -->
       <form>
-        <div class="form-group" *ngIf="!project">
-          <label for="formGroupExampleInput">Title input</label>
+        <div class="form-group" ngFor="let project of projects">
+          <label for="formGroupExampleInput">Title Input</label>
           <input
             type="text"
             class="form-control"
             id="formGroupExampleInput"
-            placeholder="Title input"
+            placeholder="{{ project ? project.name : 'Title Input' }}"
           />
           <label for="formGroupExampleInput">Description input</label>
           <input
             type="text"
             class="form-control"
             id="formGroupExampleInput"
-            placeholder="Description input"
-          />
-        </div>
-        <div class="form-group" *ngIf="project">
-          <label for="formGroupExampleInput">{{ project.name }}</label>
-          <input
-            type="text"
-            class="form-control"
-            id="formGroupExampleInput"
-            placeholder="{{ project.name }}"
-          />
-          <label for="formGroupExampleInput">{{ project.description }}</label>
-          <input
-            type="text"
-            class="form-control"
-            id="formGroupExampleInput"
-            placeholder="{{ project.description }}"
+            placeholder="{{
+              project ? project.description : 'Description input'
+            }}"
           />
         </div>
       </form>
