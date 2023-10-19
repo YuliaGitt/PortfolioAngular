@@ -12,22 +12,14 @@ import { PortfolioFormsComponent } from '../portfolio-forms/portfolio-forms.comp
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-  bsModalRef?: BsModalRef;
-  projects: Project[] = [];
-  selectedProject: any;
-  rateHovered = 0;
-  skills: Skill[] = [];
-  rateHoveredStates: { [projectId: number]: number } = {};
-  @Input() project: any;
-  @Output() editedProject = new EventEmitter<Project>();
-  @Output() newProject = new EventEmitter();
-  @Output() deletedProject = new EventEmitter<Project>();
+  selectedProject: { [projectId: number]: number } = {};
+  projects: Array<Project> = [];
+  skills: Array<Skill> = [];
 
   constructor(
     private apiService: ApiServicePortfolio,
     private bsModalService: BsModalService
   ) {}
-
   ngOnInit() {
     this.apiService.get_projects().subscribe(
       (data: any) => {
@@ -38,25 +30,29 @@ export class ProjectsComponent implements OnInit {
   }
 
   rateHover(rate: number, projectId: number) {
-    this.rateHoveredStates[projectId] = rate;
+    this.selectedProject[projectId] = rate;
   }
 
-  rateEnter(rate: number, project: Project) {
-    this.selectedProject = project;
-    this.apiService.rate_project(rate, this.selectedProject.id).subscribe(
-      (updatedProject: Project) => {
-        this.apiService.get_project(this.selectedProject.id).subscribe(
-          (fetchedProject: Project) => {
-            const index = this.projects.findIndex(
-              (p) => p.id === fetchedProject.id
+  rateEnter(rate: number, projectId: number) {
+    this.selectedProject[projectId] = projectId;
+    this.apiService
+      .rate_project(rate, this.selectedProject[projectId])
+      .subscribe(
+        (updatedProject: Project) => {
+          this.apiService
+            .get_project(this.selectedProject[projectId])
+            .subscribe(
+              (fetchedProject: Project) => {
+                const index = this.projects.findIndex(
+                  (p) => p.id === fetchedProject.id
+                );
+                this.projects[index] = fetchedProject;
+              },
+              (error) => console.log(error)
             );
-            this.projects[index] = fetchedProject;
-          },
-          (error) => console.log(error)
-        );
-      },
-      (error) => console.log(error)
-    );
+        },
+        (error) => console.log(error)
+      );
   }
 
   getSkillName(skillIds: any[]) {
@@ -66,16 +62,5 @@ export class ProjectsComponent implements OnInit {
         return skill ? skill.name : 'None';
       })
       .join(', ');
-  }
-
-  deleteProject(project: Project) {
-    this.deletedProject.emit(project);
-  }
-  openModal(project?: Project) {
-    if (project) {
-      this.selectedProject = project;
-    } else {
-      this.selectedProject = null;
-    }
   }
 }
